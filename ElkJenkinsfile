@@ -1,0 +1,143 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Just a Check') {
+            steps {
+                echo 'Hey Im downloaded for building  :D'
+            
+            }
+            
+            
+        }
+        
+          stage('DEPLOY ON A CHANGE')
+          {
+          
+          
+          
+            steps{
+            
+                 script  {
+            
+            sh  'sudo chmod 777 dep.sh'
+            sh  'sudo ./dep.sh'
+                    }
+            
+               }
+            
+           
+        }
+        
+        
+        stage('INFRA TEST NEEDS TO BE THE FIRST ONE ACCORDING TO THE USE CASE')
+        {
+        
+        steps    {
+        
+        script{
+        
+        
+        sh 'sudo python3 tests/infra/infratest.py'
+        
+               }
+        
+        
+                     }
+        
+        
+        
+        }
+        
+        
+        stage('INTEGRATION TEST TO CHECK THE WORKING CONDITION AFTER THE INITIAL INFRA SETUP ACCORDING TO THE USE CASE')
+        {
+        
+        steps    {
+        
+        script{
+        
+        
+        sh 'sudo python3 tests/integration/integration.py'
+        
+               }
+        
+        
+                     }
+        
+        
+        
+        }
+        
+        
+        
+    stage('THIS IS A STAGE WHICH I AM USING TO POPULATE DUMMY DATA FOR FUNCTIONALITY TEST PURPOSE')
+        {
+        
+        steps    {
+        
+        script{
+        
+        
+        sh 'sudo python3 tests/mockper.py'
+        
+               }
+        
+        
+                     }
+        
+        
+        
+        }
+        
+        
+    stage('RUNNING THE FUNCTIONAL TESTS AFTER DUMPING THE MOCK DATA')
+        {
+
+        steps    {
+
+        script{
+
+        sh 'sudo chmod -R tests/'
+        sh 'sudo python3 tests/elk_functional/.test.sh'
+
+               }
+
+
+                     }
+
+
+
+        }
+   
+        
+        
+     stage('PERFORMANCE TEST WILL THE LAST ONE ACCORdING TO THE FLOW OF A TEST CYCLE AFTER EVERYTHING WORKS')
+        {
+        
+        steps    {
+        
+        script{
+        
+        
+        sh 'sudo python3 tests/performance.py'
+        
+               }
+        
+        
+                     }
+        
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
