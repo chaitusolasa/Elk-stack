@@ -41,12 +41,19 @@ public class Kibanaboard extends DriverUtil {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("metricbeat"+Keys.ARROW_DOWN+Keys.ENTER);
+		//Explore airbusclients dump data
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("airbusclients"+Keys.ARROW_DOWN+Keys.ENTER);
 		
+
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/header/div/div[1]/div[1]/button"))).click();
 	    //driver.quit()
 	}
 	catch (Exception e) {
 			System.out.println(e);
+                        Assert.fail(e)
 		}	
 
 		
