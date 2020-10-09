@@ -26,7 +26,7 @@ Setting up minikube:
 ____________________
 
 So over here I have installed minikube to recreate 
-a k8s on a single cloud machine.
+a k8s cluster on a single cloud machine.
 
 Setting up elk stack:
 ____________________
