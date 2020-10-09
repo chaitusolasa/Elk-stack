@@ -56,9 +56,11 @@ public class Kibanaboard extends DriverUtil {
 	}
 	catch (Exception e) {
 			System.out.println(e);
-                        Assert.fail(e)
+                        Assert.fail(e);
 		}	
-
+         finally {
+               driver.quit():
+                 }
 		
 	}
 	
@@ -95,11 +97,13 @@ public class Kibanaboard extends DriverUtil {
 	     
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[7]/div[2]/button/span"))).click();
-	    driver.quit()
+	    
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		
+		finally{
+              driver.quit();    
+             }
 		}
 }
