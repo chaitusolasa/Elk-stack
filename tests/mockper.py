@@ -5,8 +5,9 @@ import time
 
 import urllib
 start_time = time.time()
-
-elasticurl="http://10.177.60.134:31243"
+#please use the reverse proxy url in case if u r using it
+#elasticurl="http://10.xxx.xx.xxx:31243"
+elasticurl="http://localhost:31243"
 index="airbus"
 def create_index():
     try:
