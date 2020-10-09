@@ -59,7 +59,8 @@ public class Kibanaboard extends DriverUtil {
                         Assert.fail(e);
 		}	
          finally {
-               driver.quit():
+              System.out.println("test case1 done");
+               //driver.quit():
                  }
 		
 	}
