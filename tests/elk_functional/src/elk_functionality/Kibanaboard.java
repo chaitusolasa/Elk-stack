@@ -18,7 +18,7 @@ public class Kibanaboard extends DriverUtil {
 	
 	WebDriver driver = getdriver();
 	WebDriverWait wait=new WebDriverWait(driver, 100);
-	@Test
+	@Test(priority=2)
 	public void filemetricbeat() {
 		try {
 		driver.get(Kibana.Url);
@@ -60,13 +60,13 @@ public class Kibanaboard extends DriverUtil {
 		}	
          finally {
               System.out.println("test case1 done");
-               //driver.quit():
+               driver.quit():
                  }
 		
 	}
 	
 	//CREATE THE AIRBUS INDEX
-	@Test
+	@Test(priority=1)
 	public void CreateIndexPattern() throws InterruptedException {
 		try {
 		driver.get(Kibana.Url);
@@ -104,7 +104,7 @@ public class Kibanaboard extends DriverUtil {
 			System.out.println(e);
 		}
 		finally{
-              driver.quit();    
+             // driver.quit();    
              }
 		}
 }
