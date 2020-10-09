@@ -44,7 +44,7 @@ public class Kibanaboard extends DriverUtil {
 		//Explore airbusclients dump data
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("airbusclients"+Keys.ARROW_DOWN+Keys.ENTER);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("airbus"+Keys.ARROW_DOWN+Keys.ENTER);
 		
 
 
