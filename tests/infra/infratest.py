@@ -1,7 +1,7 @@
 #import usertest
 #import configtest # first test
 import unittest   # second test
-
+import time
 from kubernetes import client, config
 import configdetails as cdet
 import json
@@ -140,6 +140,7 @@ def suite():
     """
         Gather all the tests from this module in a test suite.
     """
+    time.sleep(20)
     test_suite = unittest.TestSuite()
     test_suite.addTest(unittest.makeSuite(Test_namespace))
     test_suite.addTest(unittest.makeSuite(Test_pods))
