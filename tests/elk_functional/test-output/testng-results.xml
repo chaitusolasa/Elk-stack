@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="37822" started-at="2020-10-07T17:01:48Z" finished-at="2020-10-07T17:02:26Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="37822" started-at="2020-10-07T17:01:48Z" finished-at="2020-10-07T17:02:26Z">
+      <class name="elk_functionality.Kibanaboard">
+        <test-method status="PASS" signature="CreateIndexPattern()[pri:0, instance:elk_functionality.Kibanaboard@9c29df4e]" name="CreateIndexPattern" duration-ms="27088" started-at="2020-10-07T22:31:48Z" finished-at="2020-10-07T22:32:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateIndexPattern -->
+        <test-method status="PASS" signature="filemetricbeat()[pri:0, instance:elk_functionality.Kibanaboard@9c29df4e]" name="filemetricbeat" duration-ms="10720" started-at="2020-10-07T22:32:15Z" finished-at="2020-10-07T22:32:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- filemetricbeat -->
+      </class> <!-- elk_functionality.Kibanaboard -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

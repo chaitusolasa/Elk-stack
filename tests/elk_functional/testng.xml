@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="none">
+  <test name="Test" preserve-order="true">
+    <listeners>
+        <listener class-name='cust.CustomizedEmailableReportia' />
+         <listener class-name="cust.RetryListenerClass"/>
+         <listener class-name="cust.TestListenerFilter"/>
+	</listeners>
+  <classes>
+  		<class name="elk_functionality.Kibanaboard"/>
+
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
