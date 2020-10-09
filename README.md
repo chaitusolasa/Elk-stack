@@ -145,8 +145,9 @@ _________________________
 
 Now this whole process is done manually so now I wan
 to deploy this whole infrastructure on IaC way so that 
-it will remove the whole manual effort and 
-everything will be done on single git push
+it will remove the whole manual effort and also makes it
+a standard where everything works in the same way everytime
+and the whole process will be triggered on just a single git push
 
 Gitlab
 ________
@@ -163,9 +164,12 @@ I have created the Jenkinsfile with all the required
 deployment commands on it.
 
 
-And hurray it's done so wheneveru deploy a change 
+And hurray it's done so whenever u deploy a change 
 In git it will do this whole process without any manual
-intervention .
+intervention and due to the inbuilt kubernetes feature if there
+is any error(as we have both liveness and readiness probes configured
+in our deployments and if they don't work) the deployment will 
+be aborted and the old configuration will be used as is.
 
 
 Thank you :)
