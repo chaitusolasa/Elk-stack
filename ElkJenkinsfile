@@ -98,8 +98,8 @@ pipeline {
 
         script{
 
-        sh 'sudo chmod -R tests/'
-        sh 'sudo python3 tests/elk_functional/.test.sh'
+        sh 'sudo chmod  -R 777 tests/'
+        sh 'sudo tests/newelk/.test.sh'
 
                }
 
