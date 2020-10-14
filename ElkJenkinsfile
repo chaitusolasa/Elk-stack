@@ -91,24 +91,7 @@ pipeline {
         }
         
         
-    stage('RUNNING THE FUNCTIONAL TESTS AFTER DUMPING THE MOCK DATA')
-        {
 
-        steps    {
-
-        script{
-
-        sh 'sudo chmod  -R 777 tests/'
-        sh 'sudo tests/newelk/.test.sh'
-
-               }
-
-
-                     }
-
-
-
-        }
    
         
         
@@ -134,7 +117,25 @@ pipeline {
         
         
         
-        
+            stage('RUNNING THE FUNCTIONAL TESTS AFTER DUMPING THE MOCK DATA')
+        {
+
+        steps    {
+
+        script{
+
+        sh 'sudo chmod  -R 777 tests/'
+        sh 'sudo chmod 777 test.sh'
+        sh 'sudo ./test.sh'
+
+               }
+
+
+                     }
+
+
+
+        }
         
         
         
