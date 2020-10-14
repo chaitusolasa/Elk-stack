@@ -1,0 +1,122 @@
+package elk_functionality;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import elk_functional_utilities.*;
+
+public class Kibanaboard extends DriverUtil {
+
+	
+	
+	WebDriver driver = getdriver();
+	WebDriverWait wait=new WebDriverWait(driver, 100);
+	@Test(priority=2)
+	public void filemetricbeat() {
+		try {
+		driver.get(Kibana.Url);
+		driver.manage().window().maximize();
+		
+		Thread.sleep(2000);
+		System.out.println("encode 12");
+		//*[@id="kibana-body"]/div/header/div/div[1]/div[1]/button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='kibana-body']/div/header/div/div[1]/div[1]/button"))).click();
+		System.out.println("encode 12");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='kibana-body']/div/header/div/div[1]/div[1]/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Dashboard"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='kibana-body']/div/header/div/div[1]/div[1]/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover"))).click();
+		System.out.println("encode 12");
+		//Explore Filebeat
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("filebeat"+Keys.ARROW_DOWN+Keys.ENTER);
+		//*[@id="discover-sidebar"]/div/discover-sidebar/section/div[1]/div/div/button/span/svg
+		Thread.sleep(5000);//putting it to avoid a stale element kind of exception
+		// Explore Metricbeat
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("metricbeat"+Keys.ARROW_DOWN+Keys.ENTER);
+		//Explore airbusclients dump data 
+                //Using a sleep just to avoid stale ement exceptions
+
+                Thread.sleep(5000);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"discover-sidebar\"]/div/discover-sidebar/section/div[1]/div/div/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/input"))).sendKeys("airbus"+Keys.ARROW_DOWN+Keys.ENTER);
+		
+
+
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/header/div/div[1]/div[1]/button"))).click();
+	    //driver.quit()
+	}
+	catch (Exception e) {
+			System.out.println(e);
+                        Assert.fail();
+		}	
+         finally {
+              System.out.println("test case1 done");
+               driver.quit();
+                 }
+		
+	}
+	
+	//CREATE THE AIRBUS INDEX
+	@Test(priority=1)
+	public void CreateIndexPattern() throws InterruptedException {
+		try {
+		driver.get(Kibana.Url);
+		driver.manage().window().maximize();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/header/div/div[1]/div[1]/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/header/div/div[1]/div[1]/button"))).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Dashboard"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/header/div/div[1]/div[1]/button"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Stack Management"))).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Index Patterns"))).click();
+		//CREATE AIRBUS IndexPattern
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/div[2]/div/div[2]/div/div/main/main/div/div[1]/div[2]/button"))).click();
+	    
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("indexPattern")));
+		
+		System.out.println("ABLE TO FIND INDEX INPUT");
+		Actions action = new Actions(driver); 
+		WebElement element = driver.findElement(By.name("indexPattern"));
+		element.click();
+		element.clear();
+		Thread.sleep(3000);
+		element.sendKeys("a");
+		Thread.sleep(1000);
+		element.sendKeys("irbus");
+        
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[2]/div[2]/div[2]/div/div/button/span"))).click();
+		
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[2]/div[2]/div[2]/div/div/button/span"))).click();
+	     
+		//*[@id="kibana-body"]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[7]/div[2]/button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[7]/div[2]/button/span"))).click();
+		Thread.sleep(2000);
+		
+		System.out.println("we found u");
+		
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kibana-body\"]/div/div[2]/div/div[2]/div/div/main/main/div[1]/div[7]/div[2]/button/span"))).click();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		finally{
+             // driver.quit();    
+             }
+		}
+}
